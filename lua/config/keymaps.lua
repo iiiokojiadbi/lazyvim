@@ -27,11 +27,13 @@ keymap.set("n", "-", "<C-x>", { desc = "Уменьшить" })
 -- Выбрать все
 keymap.set("n", "<C-a>", "gg<S-v>G", { desc = "Выбрать все" })
 
--- Save file and quit
+-- Сохранение файлов и выход
 keymap.set("n", "<Leader>w", ":update<Return>", merge_opts({ desc = "Сохранить" }))
 keymap.set("n", "<Leader>q", ":quit<Return>", merge_opts({ desc = "Закрыть окно" }))
 keymap.set("n", "<Leader>Q", ":qa<Return>", merge_opts({ desc = "Закрыть все" }))
 
 -- Табы
-keymap.set("n", "te", ":tabedit", { desc = "Редактировать таб" })
-keymap.set("n", "<tab>", ":tabnext<Return>", merge_opts({ desc = "Следующий таб" }))
+keymap.set("n", "<Tab>", ":BufferLineCycleNext<CR>", merge_opts({ desc = "Следующий таб" }))
+keymap.set("n", "<s-Tab>", ":BufferLineCyclePrev<CR>", merge_opts({ desc = "Предыдущий таб" }))
+keymap.set("n", "<leader>x", ":BufferLinePickClose<CR>", merge_opts({ desc = "Закрыть таб" }))
+keymap.set("n", "<c-x>", ":BufferLineCloseOthers<CR>", merge_opts({ desc = "Закрыть все табы" }))
